@@ -6,30 +6,94 @@ interface RegisterProp {
 }
 
 const Register: React.FC<RegisterProp> = ({ switchToLogin }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    username: "",
+    email: "",
+    password: ""
+  });
+
+  const [errors, setErrors] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const validatePassword = (password: string) => {
+    const hasNumber = /\d/;
+    const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/;
+    const isValidLength = password.length >= 8;
+    return hasNumber.test(password) && hasSymbol.test(password) && isValidLength;
+  };
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setErrors(null);
+    setSuccessMessage(null);
+
+    // Basic validation
+    if (!formData.name || !formData.surname || !formData.username || !formData.email || !formData.password) {
+      setErrors("Tutti i campi sono obbligatori");
+      return;
+    }
+
+    // Password validation
+    if (!validatePassword(formData.password)) {
+      setErrors("La password deve contenere almeno un numero, un simbolo e deve essere lunga almeno 8 caratteri.");
+      return;
+    }
+
     try {
-      const data = await register(email, password);
+      const data = await register(formData.email, formData.password, formData.name, formData.surname, formData.username);
+      setSuccessMessage("Registrazione avvenuta con successo!");
       console.log("Registration successful ", data);
     } catch (err) {
-      console.error("Registration error: " + err);
+      setErrors("Errore nella registrazione: " + err.message);
+      console.error("Registration error: ", err);
     }
   };
 
   return (
     <div>
       <h2>Registrazione</h2>
+      {errors && <div style={{ color: "red" }}>{errors}</div>}
+      {successMessage && <div style={{ color: "green" }}>{successMessage}</div>}
       <form onSubmit={handleSubmit}>
         <label>
           Nome:
           <input
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Cognome:
+          <input
+            type="text"
+            name="surname"
+            value={formData.surname}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Username:
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
             required
           />
         </label>
@@ -38,8 +102,9 @@ const Register: React.FC<RegisterProp> = ({ switchToLogin }) => {
           Email:
           <input
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
             required
           />
         </label>
@@ -48,8 +113,9 @@ const Register: React.FC<RegisterProp> = ({ switchToLogin }) => {
           Password:
           <input
             type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
             required
           />
         </label>
