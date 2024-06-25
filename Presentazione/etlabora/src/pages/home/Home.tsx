@@ -1,11 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Home.css";
+import CustomCalendar from "../../components/calendar/Calendar";
+import cecinaImg from "../../assets/marina-di-Cecina.png"
 
 const Home: React.FC = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+  
   return (
-    <div>
-      <h1>Benvenuto, nomexxx, questa è la mia Home!</h1>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum perspiciatis delectus repudiandae nisi nihil adipisci. Exercitationem, qui ipsa. Voluptatum sed aliquid dolore eveniet odit vero quam quibusdam. Eaque, ex modi.</p>
-    </div>
+    <>
+      <div>
+        <h1 className="title">Benvenuto, nomexxx!</h1>
+        <p>Ti racconterò in breve il mio percorso.</p>
+      </div>
+      <div>
+        <h2>Toscana</h2>
+        <p>
+          Sono nato a{" "}
+          <a
+            href="https://it.wikipedia.org/wiki/Cecina_(Italia)"
+            className="cecina"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            Cecina (LI)
+          </a>{" "}
+          il
+          <CustomCalendar />
+        </p>
+        <img src={cecinaImg}
+          alt="cecinaImg"
+          className={`cecinaImg ${isHovered ? "enlarged" : ""}`} />
+        <p>
+          Lì mi sono formato, ho coltivato i miei interessi e ho passato il mio
+          tempo tra giornate di mare e la compagnia degli amici, senza
+          trascurare gli studi ovviamente. Crescendo, ho però capito che quella
+          realtà mi stava stretta; avevo bisogno di vivere in una città più in
+          linea con la persona che stavo diventando, che non fosse monotona, e
+          circondarmi di persone che avessero la mia stessa mentalità.
+        </p>
+        <h2>Milano</h2>
+        <p>
+          Mi sono dunque trasferito a Milano nel 2018, l'unica città in Italia
+          che rispecchiava ciò che stavo cercando.
+        </p>
+      </div>
+    </>
   );
 };
 

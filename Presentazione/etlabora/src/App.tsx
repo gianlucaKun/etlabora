@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
-import Register from "./pages/register/Register";
 import Navbar from "./components/navbar/Navbar";
 import AuthPage from "./pages/authPage/AuthPage";
+import Sidebar from "./pages/sidebar/Sidebar";
+import "./App.css";
 
 const App: React.FC = () => {
   return (
@@ -14,11 +15,15 @@ const App: React.FC = () => {
           <Navbar />
         </header>
         <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/submit" element={<AuthPage />} />
-            {/* Aggiungi altre rotte qui, se necessario */}
-          </Routes>
+          
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/submit" element={<AuthPage />} />
+              {/* Aggiungi altre rotte qui, se necessario */}
+            </Routes>
+          </div>
+          <Sidebar />
         </main>
       </div>
     </Router>
