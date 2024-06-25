@@ -9,11 +9,13 @@ const Register: React.FC<RegisterProp> = ({ switchToLogin }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [surname, setSurname] = useState("");
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
-      const data = await register(email, password);
+      const data = await register(email, password, name, surname,  username);
       console.log("Registration successful ", data);
     } catch (err) {
       console.error("Registration error: " + err);
@@ -33,7 +35,28 @@ const Register: React.FC<RegisterProp> = ({ switchToLogin }) => {
             required
           />
         </label>
-        <br />
+        <br /> 
+        <label>
+          Cognome:
+          <input
+            type="text"
+            value={surname}
+            onChange={(e) => setSurname(e.target.value)}
+            required
+          />
+        </label>
+        <br/>
+
+        <label>
+          Username:
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </label>
+        <br/>
         <label>
           Email:
           <input
