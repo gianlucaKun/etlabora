@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Home.css";
+import Cecina from "../cecina/Cecina";
+import Milano from "../milano/Milano";
 
 const Home: React.FC = () => {
 
   return (
-    <>
-      <div className="content">
-        <h1 className="title">Benvenuto!</h1>
-        <p>Ti racconterò in breve il mio percorso.</p>
-      </div>
-      <div className="journey">
-        <div className="details">
-        </div>
-      </div>
-    </>
+    <div className="containerBio">
+    <Cecina />
+    <Milano />
+    </div>
   );
 };
 

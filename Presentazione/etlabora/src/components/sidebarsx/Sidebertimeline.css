@@ -1,9 +1,15 @@
-a {
+a.linkTimeline {
   font-family: "lato";
   text-decoration: none;
-  color: #e3dc95;
+  color: #e3ad05;
 }
 .containerTimeline {
+    grid-column: 3/-1;
+    position: sticky;
+    top: 10px;
+    border-top: 1px solid #000;
+    margin-top: 50px;
+    padding-left: 50px;
   & ul {
     list-style: none;
     padding-left: 0;
@@ -11,17 +17,10 @@ a {
 
   & li {
     position: relative;
-    padding-left: 1.8em;
+    padding-left: 1em;
+    margin-bottom: 2em;
   }
-
-  & li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.3em;
-    width: 1em;
-    height: 1em;
-    background-color: #e3dc95;
-    border-radius: 50%;
+  & h4 {
+    font-size: 1.5rem;
   }
 }

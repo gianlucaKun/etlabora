@@ -6,12 +6,12 @@ import styled from "styled-components";
 
 const StyledCalendar = styled(Calendar)`
   max-width: 233px;
-  border: 1px solid #ae61d1;
   border-radius: 5px;
   pointer-events: none;
   display: inline-block;
   margin-left: 25px;
   padding: 5px;
+  background-color: #6b6a6adf;
 
   .react-calendar__tile--active {
     background-color: #82bff0;
@@ -50,7 +50,6 @@ const CustomCalendar: React.FC = () => {
       value={birthdate}
       showNeighboringMonth={false}
       calendarType="iso8601"
-      onClickDay={(value, event) => event.preventDefault()}
       onChange={() => {}}
       className="calendar"
     />

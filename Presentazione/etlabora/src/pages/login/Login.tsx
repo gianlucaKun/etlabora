@@ -33,7 +33,7 @@ const Login: React.FC<LoginProps> = ({ switchToRegister }) => {
       setSuccessMessage("Login avvenuto con successo!");
       console.log("Login successful ", data);
     } catch (err) {
-      setErrors("Errore nel login: " + err.message);
+      setErrors("Errore nel login: " + err);
       console.error("Login error: ", err);
     }
   };

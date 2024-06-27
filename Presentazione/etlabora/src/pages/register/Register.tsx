@@ -54,7 +54,7 @@ const Register: React.FC<RegisterProp> = ({ switchToLogin }) => {
       setSuccessMessage("Registrazione avvenuta con successo!");
       console.log("Registration successful ", data);
     } catch (err) {
-      setErrors("Errore nella registrazione: " + err.message);
+      setErrors("Errore nella registrazione: " + err);
       console.error("Registration error: ", err);
     }
   };
