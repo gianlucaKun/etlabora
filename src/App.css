@@ -1,0 +1,15 @@
+/* src/App.css */
+
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-rows:auto;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.content {
+  grid-column: 1 / span 2;
+  margin-top: -18em;
+}
