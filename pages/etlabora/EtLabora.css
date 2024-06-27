@@ -1,0 +1,37 @@
+#etlabora {
+    margin-top: -5px;
+    margin-right: 50px;
+    font-size: 3rem;
+    transition: 0.5s;
+}
+#etlabora:target {
+    background-color: coral;
+    transition: 1s;
+}
+
+
+.containerEtlabora {
+
+}
+#fullstackImg {
+    margin-top: -100px;
+    width: 450px;
+    height: 100%;
+}
+h3 {
+    text-align: start;
+    font-size: 1.5rem;
+}
+.corso {
+    display: flex;
+    & div.containerDescriptions {
+        width: 70%;
+    }
+}
+.containerAllEtLabora {
+    background-color: #E6E6EA;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 1.2rem;
+    padding-bottom: 25px;
+}
