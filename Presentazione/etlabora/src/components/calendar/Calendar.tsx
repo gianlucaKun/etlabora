@@ -5,9 +5,7 @@ import Calendar from "react-calendar";
 import styled from "styled-components";
 
 const StyledCalendar = styled(Calendar)`
-position: relative;
-top: -20px;
-  max-width: 250px;
+  max-width: 233px;
   border: 1px solid #ae61d1;
   border-radius: 5px;
   pointer-events: none;
@@ -54,6 +52,7 @@ const CustomCalendar: React.FC = () => {
       calendarType="iso8601"
       onClickDay={(value, event) => event.preventDefault()}
       onChange={() => {}}
+      className="calendar"
     />
   );
 };
