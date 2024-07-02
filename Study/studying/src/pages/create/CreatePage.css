@@ -1,0 +1,40 @@
+.containerCreate {
+  margin-top: 10%;
+  padding: 15px;
+  border: 2px solid #5e5e5e95;
+  background-color: #5e5e5ee0;
+  color: #ddd;
+  border-radius: 5%;
+    height: max-content;
+  width: max-content;
+}
+form {
+    display: flex;
+  flex-direction: column;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+form button {
+    width: max-content;
+    align-self: end;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #28ff4c9f;
+}
+form button:focus {
+    background-color: #28ff4c;
+}
+.pageContainer {
+  background-image: url("https://static2-living.corriereobjects.it/wp-content/uploads/2020/07/4-Eclisse_Artemide-994x1420.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}

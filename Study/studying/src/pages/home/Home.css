@@ -1,0 +1,8 @@
+.containerCards {
+    background-color: red;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 2rem;
+    height: 100%;
+}

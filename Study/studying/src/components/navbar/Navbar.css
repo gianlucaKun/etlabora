@@ -1,0 +1,28 @@
+nav {
+    background-color: #333;
+    padding: 1rem;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around; /* Distribuisce lo spazio intorno agli elementi */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 0; /* Rimuovi i margini personalizzati */
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+}
+
+a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
